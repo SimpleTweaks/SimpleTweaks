@@ -1,4 +1,4 @@
-﻿namespace SimpleTweaks.Plugin; 
+﻿namespace SimpleTweaks.Plugin;
 
 public interface ITweakManager : IDisposable {
     public void InitializeClientStructs();

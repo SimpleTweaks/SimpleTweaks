@@ -3,20 +3,16 @@ using System.Runtime.Loader;
 using Dalamud.Logging;
 using Dalamud.Plugin;
 
-namespace SimpleTweaks.Plugin; 
+namespace SimpleTweaks.Plugin;
 
 public class SimpleLoadContext : AssemblyLoadContext {
-
     private readonly DirectoryInfo directory;
     private readonly string name;
-    
-    
-    
-    
+
     public SimpleLoadContext(string name, DirectoryInfo directoryInfo) : base(true) {
         this.name = name;
         directory = directoryInfo;
-        
+
         handledAssemblies = new Dictionary<string, Assembly>() {
             ["Dalamud"] = typeof(DalamudPluginInterface).Assembly,
             ["SimpleTweaksPlugin2"] = typeof(Plugin).Assembly,
@@ -27,9 +23,8 @@ public class SimpleLoadContext : AssemblyLoadContext {
         handledAssemblies.TryAdd(name, assembly);
     }
 
-
     private readonly Dictionary<string, Assembly> handledAssemblies;
-    
+
     protected override Assembly? Load(AssemblyName assemblyName) {
         PluginLog.Verbose($"[{name}] Attempting to load {assemblyName.FullName}");
 
@@ -37,17 +32,18 @@ public class SimpleLoadContext : AssemblyLoadContext {
             PluginLog.Verbose($"[{name}] Forwarded reference to {assemblyName.Name}");
             return handledAssemblies[assemblyName.Name];
         }
-        
+
         var file = Path.Join(directory.FullName, $"{assemblyName.Name}.dll");
         if (File.Exists(file)) {
             try {
                 PluginLog.Verbose($"[{name}] Attempting to load {assemblyName.Name} from {file}");
                 return LoadFromFile(file);
-            } catch {
+            }
+            catch {
                 //
             }
         }
-        
+
         return base.Load(assemblyName);
     }
 

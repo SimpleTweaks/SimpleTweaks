@@ -30,7 +30,7 @@
             <Private>false</Private>
         </Reference>
 
-        <None Include="$(SolutionDir)\FFXIVClientStructs\bin\$(Configuration)\FFXIVClientStructs.dll" CopyToOutputDirectory="Always" TargetPath="ClientStructs\FFXIVClientStructs.dll" Visible="false"/>
-        <None Include="$(SolutionDir)\FFXIVClientStructs\bin\$(Configuration)\FFXIVClientStructs.pdb" CopyToOutputDirectory="Always" TargetPath="ClientStructs\FFXIVClientStructs.pdb" Visible="false"/>
+        <None Include="$(SolutionDir)\FFXIVClientStructs\bin\$(Configuration)\FFXIVClientStructs.dll" CopyToOutputDirectory="Always" TargetPath="ClientStructs\FFXIVClientStructs.dll" Visible="false" />
+        <None Include="$(SolutionDir)\FFXIVClientStructs\bin\$(Configuration)\FFXIVClientStructs.pdb" CopyToOutputDirectory="Always" TargetPath="ClientStructs\FFXIVClientStructs.pdb" Visible="false" />
     </ItemGroup>
 </Project>

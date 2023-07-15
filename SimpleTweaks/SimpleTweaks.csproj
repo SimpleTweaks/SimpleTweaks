@@ -25,6 +25,16 @@
             <HintPath>$(SolutionDir)\FFXIVClientStructs\bin\$(Configuration)\FFXIVClientStructs.dll</HintPath>
             <Private>false</Private>
         </Reference>
-        <ProjectReference Include="..\Plugin\Plugin.csproj" Private="false"/>
+        <Reference Include="ImGui.NET">
+            <Private>false</Private>
+            <HintPath>$(DalamudLibPath)\ImGui.NET.dll</HintPath>
+        </Reference>
+        <Reference Include="Newtonsoft.Json">
+            <HintPath>$(DalamudLibPath)Newtonsoft.Json.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <PackageReference Include="System.Numerics.Vectors" Version="4.5.0" />
+        <ProjectReference Include="..\Plugin\Plugin.csproj" Private="false" />
     </ItemGroup>
+
 </Project>
